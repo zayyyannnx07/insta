@@ -3,715 +3,558 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Futuristic Instagram Aesthetic Profile</title>
+  <title>Premium Aesthetic Profile Engine</title>
   <style>
     :root {
       --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      --future-gradient1: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
-      --future-gradient2: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
-      --bg-dark: #090a0f;
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --bg-main: #09090b;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: white;
+      background-color: var(--bg-main);
+      color: #fafafa;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow-x: hidden;
-      perspective: 1000px;
     }
 
-    /* ==================== INPUT FORM SECTION ==================== */
-    .form-container {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 16px;
+    /* ==================== INPUT FORM PANEL (GLASSMORPHIC) ==================== */
+    .form-wrapper {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      padding: 32px;
+      border-radius: 24px;
       width: 100%;
       max-width: 400px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      transition: all 0.5s ease;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
     }
 
-    .form-title {
-      font-size: 24px;
+    .form-header {
+      font-size: 22px;
       font-weight: 700;
       text-align: center;
-      margin-bottom: 25px;
-      background: var(--insta-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+      color: #ffffff;
     }
 
-    .input-group {
-      margin-bottom: 18px;
+    .input-box {
+      margin-bottom: 16px;
     }
 
-    .input-group label {
+    .input-box label {
       display: block;
-      font-size: 12px;
-      color: #aaa;
+      font-size: 11px;
+      color: #a1a1aa;
       margin-bottom: 6px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      font-weight: 600;
     }
 
-    .input-group input, .input-group textarea {
+    .input-box input, .input-box textarea {
       width: 100%;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      padding: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 12px 16px;
       color: white;
       font-size: 14px;
       outline: none;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
-    .input-group input:focus, .input-group textarea:focus {
-      border-color: #e6683c;
-      box-shadow: 0 0 10px rgba(230, 104, 60, 0.2);
+    .input-box input:focus, .input-box textarea:focus {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.08);
     }
 
-    .stats-row {
+    .row-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 15px;
+      gap: 12px;
     }
 
-    .file-upload-box {
+    /* Premium Custom Drag & Drop box */
+    .upload-zone {
       width: 100%;
-      border: 2px dashed #40c9ff;
-      border-radius: 10px;
+      border: 1px dashed rgba(255,255,255,0.2);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 15px;
+      padding: 20px;
       cursor: pointer;
-      background: rgba(0, 110, 255, 0.05);
-      margin-bottom: 20px;
-      text-align: center;
+      background: rgba(255,255,255,0.02);
+      margin-bottom: 24px;
+      transition: all 0.3s;
     }
 
-    .file-upload-box svg {
-      height: 40px;
-      fill: #40c9ff;
+    .upload-zone:hover {
+      border-color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .upload-zone svg {
+      height: 32px;
+      fill: #a1a1aa;
       margin-bottom: 8px;
     }
 
-    .file-upload-box p {
-      font-size: 13px;
-      color: #ccc;
+    .upload-zone p {
+      font-size: 12px;
+      color: #a1a1aa;
     }
 
-    #file-input {
-      display: none;
-    }
-
-    .preview-badge {
+    .status-pill {
       font-size: 11px;
-      color: #e81cff;
-      margin-top: 5px;
+      color: #22c55e;
+      margin-top: 6px;
+      font-weight: 600;
       display: none;
     }
 
-    .submit-btn {
+    #file-input { display: none; }
+
+    /* Clean Trigger Button */
+    .btn-trigger {
       width: 100%;
-      transition: all 0.5s;
-      font-size: 16px;
-      font-weight: bold;
       padding: 14px;
-      background-color: white;
-      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #ffffff;
+      color: #000000;
       cursor: pointer;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 2px 2px 0px #ddd, 4px 4px 0px #bbb, 6px 6px 0px #999;
-      text-transform: uppercase;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .submit-btn:hover {
-      background-color: #e81cff;
-      color: #fff;
-      box-shadow: none;
-      transform: translateY(4px);
+    .btn-trigger:hover {
+      transform: scale(1.02);
+      background: #f4f4f5;
     }
 
-    /* ==================== FUTURE PROFILE VIEW SYSTEM ==================== */
-    .profile-display-wrapper {
+
+    /* ==================== HIGH-END CARD DISPLAY SYSTEM ==================== */
+    .profile-viewport {
       width: 100%;
       height: 100vh;
       position: relative;
-      display: none; 
-      flex-direction: column;
+      display: none;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
-    .back-to-form-btn {
+    .btn-nav-back {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      padding: 8px 16px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: white;
-      border-radius: 20px;
+      top: 30px;
+      left: 30px;
+      padding: 10px 18px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: #e4e4e7;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 30px;
       cursor: pointer;
-      z-index: 100;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
     }
 
-    .back-to-form-btn:hover {
-      background: white;
-      color: black;
+    .btn-nav-back:hover {
+      background: #ffffff;
+      color: #000000;
     }
 
-    .circle-bg {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background-color: #ffbb66;
-      position: absolute;
-      filter: blur(40px);
-      animation: floating 3s infinite ease-in-out;
-      opacity: 0.3;
-      z-index: 1;
-    }
-
-    #circle-bottom {
-      background-color: #ff8866;
-      left: 30%;
-      top: 20%;
-      width: 200px;
-      height: 200px;
-    }
-
-    #circle-right {
-      background-color: #e81cff;
-      right: 25%;
-      bottom: 20%;
-      width: 180px;
-      height: 180px;
-      animation-delay: -1s;
-    }
-
-    @keyframes floating {
-      0%, 100% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(20px) scale(1.1); }
-    }
-
-    .carousel-inner {
-      --w: 260px;
-      --h: 360px;
-      --rotateX: -10deg;
-      --perspective: 1200px;
+    /* Core Card Layout (Mixed with your provided structural parameters) */
+    .master-card-container {
       position: relative;
-      width: var(--w);
-      height: var(--h);
-      z-index: 5;
-      transform-style: preserve-3d;
-      transform: perspective(var(--perspective)) rotateX(var(--rotateX));
-      animation: rotating 25s linear infinite;
-    }
-
-    .carousel-inner:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes rotating {
-      from { transform: perspective(1200px) rotateX(-10deg) rotateY(0deg); }
-      to { transform: perspective(1200px) rotateX(-10deg) rotateY(1turn); }
-    }
-
-    .futuristic-card {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      border-radius: 16px;
-      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
-      transform: rotateY(0deg) translateZ(0px); 
-    }
-
-    .futuristic-card::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 18px;
-      background: var(--future-gradient1);
-      z-index: -2;
-      pointer-events: none;
-    }
-
-    .futuristic-card::after {
-      content: "";
-      z-index: -3;
-      position: absolute;
-      inset: 0;
-      background: var(--future-gradient2);
-      transform: scale(0.95);
-      filter: blur(25px);
-      opacity: 0.8;
-      transition: filter 0.5s;
-    }
-
-    .futuristic-card:hover::after {
-      filter: blur(35px);
-    }
-
-    .card-content-wrapper {
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 16px;
-    }
-
-    .futuristic-card:hover .card-content-wrapper {
-      transform: rotateY(180deg);
-    }
-
-    .front-side, .back-side {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 14px;
+      width: 350px;
+      height: 480px;
+      background: linear-gradient(135deg, #010101 0%, #0c0c0e 50%, #010101 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 32px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
-      background-color: #0b0c10;
-      border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .front-side {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .master-card-container:hover {
+      transform: scale(1.03) rotate(-0.5deg);
+      border-color: rgba(255,255,255,0.2);
     }
 
-    .profile-image-bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      z-index: 1;
-    }
-
-    .image-overlay-layer {
+    /* Light sheen sweeps reflection animation overlay */
+    .sheen-layer {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.95) 100%);
-      z-index: 2;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+      transform: translateX(-100%) skewX(-12deg);
+      transition: transform 0.8s ease;
+    }
+    
+    .master-card-container:hover .sheen-layer {
+      transform: translateX(100%) skewX(-12deg);
     }
 
-    .front-ui-elements {
+    /* Profile Frame Section */
+    .avatar-wrapper {
       position: relative;
-      z-index: 3;
-      width: 100%;
-      height: 100%;
-      padding: 18px;
+      width: 110px;
+      height: 110px;
+      margin-top: 10px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
     }
 
-    .badge-premium {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 4px 12px;
-      border-radius: 20px;
-      backdrop-filter: blur(5px);
-      width: fit-content;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #40c9ff;
-    }
-
-    .bottom-info-panel {
-      box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
-      width: 100%;
-      padding: 12px;
-      background-color: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .display-name {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin-bottom: 2px;
-      color: #fff;
-    }
-
-    .display-username {
-      font-size: 12px;
-      color: #e81cff;
-      font-weight: 600;
-    }
-
-    .display-bio {
-      font-size: 11px;
-      color: #ccc;
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    .back-side {
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 20px;
-    }
-
-    .back-side::before {
+    /* The Instagram Professional Rounding Border Track Animation */
+    .avatar-ring-animated {
       position: absolute;
-      content: ' ';
-      top: -30%;
-      left: -30%;
-      width: 160%;
-      height: 160%;
-      background: linear-gradient(90deg, transparent, rgba(232, 28, 255, 0.2), transparent);
-      animation: scanline 4s infinite linear;
-      z-index: 1;
+      inset: 0;
+      border-radius: 50%;
+      padding: 2.5px; /* Border gap thickness */
+      background: var(--insta-gradient);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: spin-ring 6s linear infinite;
     }
 
-    @keyframes scanline {
-      0% { transform: rotate(0deg); }
+    @keyframes spin-ring {
       100% { transform: rotate(360deg); }
     }
 
-    .back-content-inner {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .avatar-core-img {
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      object-fit: cover;
+      border-radius: 50%;
+      background: #18181b;
+      border: 2px solid #010101;
     }
 
-    .back-header {
+    /* Information Fields Layout */
+    .meta-details-box {
       text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 10px;
+      width: 100%;
+      margin-top: 16px;
     }
 
-    .back-header h4 {
-      font-size: 14px;
-      color: #40c9ff;
-      letter-spacing: 1px;
+    .meta-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+      margin-bottom: 2px;
     }
 
-    .stats-container {
+    .meta-username {
+      font-size: 13px;
+      font-weight: 500;
+      color: #a1a1aa;
+      margin-bottom: 12px;
+    }
+
+    .meta-bio {
+      font-size: 13px;
+      color: #d4d4d8;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+
+    /* Stats Board Configuration */
+    .metrics-dashboard {
       display: flex;
-      justify-content: space-between;
-      text-align: center;
+      width: 100%;
+      justify-content: space-around;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 16px 0;
       margin: 20px 0;
     }
 
-    .stat-item h5 {
+    .metric-node text {
+      display: block;
       font-size: 16px;
       font-weight: 700;
-      color: #fff;
+      color: #ffffff;
     }
 
-    .stat-item p {
-      font-size: 10px;
-      color: #aaa;
+    .metric-node span {
+      font-size: 11px;
+      color: #71717a;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
       margin-top: 2px;
+      display: block;
     }
 
-    .action-buttons {
-      display: flex;
-      flex-direction: column;
+    /* Actions Hub Utility */
+    .interaction-hub {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
+      width: 100%;
     }
 
-    .action-btn {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
+    .hub-btn {
+      padding: 11px;
+      border-radius: 10px;
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       border: none;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       text-align: center;
     }
 
-    .btn-follow {
-      background: var(--insta-gradient);
-      color: white;
-      box-shadow: 0 4px 10px rgba(204, 35, 102, 0.3);
+    .btn-prime-follow {
+      background: #ffffff;
+      color: #000000;
     }
 
-    .btn-follow.following {
-      background: rgba(255, 255, 255, 0.15);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: none;
+    .btn-prime-follow.active-state {
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
-    .btn-message {
-      background: transparent;
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+    .btn-sec-msg {
+      background: rgba(255,255,255,0.05);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .btn-message:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .card-footer-tag {
-      text-align: center;
-      font-size: 9px;
-      color: #555;
-      letter-spacing: 0.5px;
+    .btn-sec-msg:hover {
+      background: rgba(255,255,255,0.08);
     }
   </style>
 </head>
 <body>
 
-  <div class="form-container" id="profile-form-panel">
-    <div class="form-title">Insta-Aesthetic Engine</div>
+  <div class="form-wrapper" id="panel-form">
+    <div class="form-header">Create Profile</div>
     
-    <div class="input-group">
-      <label for="input-name">Full Name</label>
-      <input type="text" id="input-name" placeholder="e.g. Aman Sharma" value="Aman Sharma">
+    <div class="input-box">
+      <label>Full Name</label>
+      <input type="text" id="in-name" placeholder="Aman Sharma" value="Aman Sharma">
     </div>
 
-    <div class="input-group">
-      <label for="input-username">Username</label>
-      <input type="text" id="input-username" placeholder="e.g. cyber_aman" value="cyber_aman">
+    <div class="input-box">
+      <label>Username</label>
+      <input type="text" id="in-user" placeholder="cyber_aman" value="cyber_aman">
     </div>
 
-    <div class="input-group">
-      <label for="input-bio">Bio Description</label>
-      <textarea id="input-bio" rows="2" placeholder="Tell your aesthetic story...">Creating digital realms. Living in 2026. ⚡</textarea>
+    <div class="input-box">
+      <label>Bio</label>
+      <textarea id="in-bio" rows="2" placeholder="Write your profile bio...">Architecting clean minimal UI concepts. Living in 2026. ⚡</textarea>
     </div>
 
-    <div class="stats-row">
-      <div class="input-group">
-        <label for="input-followers">Followers</label>
-        <input type="number" id="input-followers" placeholder="14200" value="14200">
+    <div class="row-grid">
+      <div class="input-box">
+        <label>Followers</label>
+        <input type="number" id="in-followers" value="84200">
       </div>
-      <div class="input-group">
-        <label for="input-following">Following</label>
-        <input type="number" id="input-following" placeholder="482" value="482">
+      <div class="input-box">
+        <label>Following</label>
+        <input type="number" id="in-following" value="312">
       </div>
     </div>
 
-    <label class="file-upload-box" for="file-input">
+    <label class="upload-zone" for="file-input">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+        <path d="M4 5h16v14H4zm2 2v10h12V7zm4 2l2.5 3 1.5-1.5L16 14H8z"/>
       </svg>
-      <p id="upload-status-text">Click to Choose Profile Picture</p>
-      <div class="preview-badge" id="preview-badge">Image Compressed & Saved! ✅</div>
+      <p id="upload-label">Select Profile Picture</p>
+      <div class="status-pill" id="status-pill">LocalStorage Synchronized ✓</div>
     </label>
     <input type="file" id="file-input" accept="image/*">
 
-    <button type="button" class="submit-btn" onclick="generateProfileView()">
+    <button type="button" class="btn-trigger" onclick="compileAndBuildProfile()">
       { See Your Profile }
     </button>
   </div>
 
 
-  <div class="profile-display-wrapper" id="profile-view-panel">
+  <div class="profile-viewport" id="panel-view">
     
-    <button class="back-to-form-btn" onclick="goBackToForm()">← Edit Profile</button>
+    <button class="btn-nav-back" onclick="rollbackToForm()">← Edit Parameters</button>
 
-    <div class="circle-bg" id="circle-bottom"></div>
-    <div class="circle-bg" id="circle-right"></div>
+    <div class="master-card-container">
+      <div class="sheen-layer"></div>
 
-    <div class="carousel-inner">
-      <div class="futuristic-card">
-        <div class="card-content-wrapper">
-          
-          <div class="front-side">
-            <img src="" id="card-avatar" class="profile-image-bg" alt="Profile Image">
-            <div class="image-overlay-layer"></div>
-            
-            <div class="front-ui-elements">
-              <div class="badge-premium">NEO-GEN VERIFIED</div>
-              
-              <div class="bottom-info-panel">
-                <div class="display-name" id="card-name">Aman Sharma</div>
-                <div class="display-username" id="card-username">@cyber_aman</div>
-                <div class="display-bio" id="card-bio">Creating digital realms. Living in 2026. ⚡</div>
-              </div>
-            </div>
-          </div>
+      <div class="avatar-wrapper">
+        <div class="avatar-ring-animated"></div>
+        <img src="" id="out-avatar" class="avatar-core-img" alt="Avatar Target">
+      </div>
 
-          <div class="back-side">
-            <div class="back-content-inner">
-              
-              <div class="back-header">
-                <h4 id="card-back-username">@CYBER_AMAN</h4>
-              </div>
+      <div class="meta-details-box">
+        <div class="meta-name" id="out-name">Aman Sharma</div>
+        <div class="meta-username" id="out-user">@cyber_aman</div>
+        <div class="meta-bio" id="out-bio">Architecting clean minimal UI concepts. Living in 2026. ⚡</div>
+      </div>
 
-              <div class="stats-container">
-                <div class="stat-item">
-                  <h5>0</h5>
-                  <p>Posts</p>
-                </div>
-                <div class="stat-item">
-                  <h5 id="card-followers">0</h5>
-                  <p>Followers</p>
-                </div>
-                <div class="stat-item">
-                  <h5 id="card-following">0</h5>
-                  <p>Following</p>
-                </div>
-              </div>
-
-              <div class="action-buttons">
-                <button class="action-btn btn-follow" id="follow-action-btn" onclick="toggleFollowLogic()">Follow</button>
-                <button class="action-btn btn-message" onclick="triggerMessageLogic()">Message</button>
-              </div>
-
-              <div class="card-footer-tag">FUTURE ENGINE V2.6</div>
-            </div>
-          </div>
-
+      <div class="metrics-dashboard">
+        <div class="metric-node">
+          <text>0</text>
+          <span>Posts</span>
+        </div>
+        <div class="metric-node">
+          <text id="out-followers">0</text>
+          <span>Followers</span>
+        </div>
+        <div class="metric-node">
+          <text id="out-following">0</text>
+          <span>Following</span>
         </div>
       </div>
-    </div>
 
+      <div class="interaction-hub">
+        <button class="hub-btn btn-prime-follow" id="follow-trigger" onclick="executeFollowToggle()">Follow</button>
+        <button class="hub-btn btn-sec-msg" onclick="executeMessageDialog()">Message</button>
+      </div>
+
+    </div>
   </div>
 
   <script>
-    let base64ImageGlobal = "";
-    let initialFollowerCount = 0;
-    let isFollowingState = false;
+    let activeBase64String = "";
+    let followerNumericValue = 0;
+    let localTrackingFollowState = false;
 
-    const fallbackImageSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'><rect width='100%' height='100%' fill='%23121214'/><circle cx='150' cy='160' r='60' fill='%23222' stroke='%2340c9ff' stroke-width='3'/><path d='M70 320 C70 250, 230 250, 230 320' fill='none' stroke='%23e81cff' stroke-width='4'/></svg>";
+    // Vector Graphics Fallback Avatar
+    const defaultPlaceholderImage = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 100 100'><rect width='100%25' height='100%25' fill='%231c1c1e'/><circle cx='50' cy='45' r='20' fill='%233a3a3c'/><path d='M20 85 C20 65, 80 65, 80 85' fill='%233a3a3c'/></svg>";
 
+    // Auto load state from local storage stream
     window.addEventListener('DOMContentLoaded', () => {
-      const cachedImage = localStorage.getItem('user_profile_dp');
-      if (cachedImage) {
-        base64ImageGlobal = cachedImage;
-        document.getElementById('upload-status-text').innerText = "Loaded Cached DP!";
-        document.getElementById('preview-badge').style.display = "block";
+      const persistedImage = localStorage.getItem('user_profile_dp');
+      if (persistedImage) {
+        activeBase64String = persistedImage;
+        document.getElementById('upload-label').innerText = "Cached DP Active";
+        document.getElementById('status-pill').style.display = "block";
       }
     });
 
-    // Image Compressor Logic to fix LocalStorage Memory Limits
-    document.getElementById('file-input').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-          const img = new Image();
-          img.src = event.target.result;
-          img.onload = function() {
-            // Downscale image using an in-memory Canvas
-            const canvas = document.createElement('canvas');
-            const MAX_WIDTH = 400; // Profile grid display width optimization
-            const scaleSize = MAX_WIDTH / img.width;
-            canvas.width = MAX_WIDTH;
-            canvas.height = img.height * scaleSize;
+    // High fidelity Image downsampling workflow routine (Canvas Compression)
+    document.getElementById('file-input').addEventListener('change', function(event) {
+      const selectedFile = event.target.files[0];
+      if (selectedFile) {
+        const fileStreamReader = new FileReader();
+        fileStreamReader.onload = function(e) {
+          const imageInstance = new Image();
+          imageInstance.src = e.target.result;
+          imageInstance.onload = function() {
+            const memoryCanvas = document.createElement('canvas');
+            const BOUNDING_LIMIT = 350; 
+            const dynamicScale = BOUNDING_LIMIT / imageInstance.width;
+            
+            memoryCanvas.width = BOUNDING_LIMIT;
+            memoryCanvas.height = imageInstance.height * dynamicScale;
 
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            const graphicsContext = memoryCanvas.getContext('2d');
+            graphicsContext.drawImage(imageInstance, 0, 0, memoryCanvas.width, memoryCanvas.height);
 
-            // Export to highly compressed base64 string
-            base64ImageGlobal = canvas.toDataURL('image/jpeg', 0.7);
+            activeBase64String = memoryCanvas.toDataURL('image/jpeg', 0.75);
             
             try {
-              localStorage.setItem('user_profile_dp', base64ImageGlobal);
-              document.getElementById('upload-status-text').innerText = "Image Loaded Successfully!";
-              document.getElementById('preview-badge').style.display = "block";
-            } catch(err) {
-              console.log("Local Storage Full! Using Session Memory.");
+              localStorage.setItem('user_profile_dp', activeBase64String);
+              document.getElementById('upload-label').innerText = "Image Linked!";
+              document.getElementById('status-pill').style.display = "block";
+            } catch (storageError) {
+              console.warn("Storage quota exception, bypass cache layer.");
             }
           };
         };
-        reader.readAsDataURL(file);
+        fileStreamReader.readAsDataURL(selectedFile);
       }
     });
 
-    function generateProfileView() {
-      const nameVal = document.getElementById('input-name').value || "No Name";
-      const userVal = document.getElementById('input-username').value || "anonymous";
-      const bioVal = document.getElementById('input-bio').value || "";
-      const followersVal = parseInt(document.getElementById('input-followers').value) || 0;
-      const followingVal = document.getElementById('input-following').value || 0;
+    // Compilation controller engine
+    function compileAndBuildProfile() {
+      const inputName = document.getElementById('in-name').value || "Identity Undefined";
+      const inputUser = document.getElementById('in-user').value || "anonymous";
+      const inputBio = document.getElementById('in-bio').value || "";
+      const inputFollowers = parseInt(document.getElementById('in-followers').value) || 0;
+      const inputFollowing = document.getElementById('in-following').value || 0;
 
-      document.getElementById('card-name').innerText = nameVal;
-      document.getElementById('card-username').innerText = `@${userVal.replace('@', '')}`;
-      document.getElementById('card-back-username').innerText = `@${userVal.replace('@', '')}`.toUpperCase();
-      document.getElementById('card-bio').innerText = bioVal;
+      // Map data straight into DOM node layers
+      document.getElementById('out-name').innerText = inputName;
+      document.getElementById('out-user').innerText = `@${inputUser.replace('@', '')}`;
+      document.getElementById('out-bio').innerText = inputBio;
       
-      initialFollowerCount = followersVal;
-      isFollowingState = false;
-      
-      const followBtn = document.getElementById('follow-action-btn');
-      followBtn.innerText = "Follow";
-      followBtn.classList.remove('following');
-      
-      renderFollowersCount(initialFollowerCount);
-      document.getElementById('card-following').innerText = formatStatNumber(followingVal);
+      // Initialize internal numerical follower models
+      followerNumericValue = inputFollowers;
+      localTrackingFollowState = false;
+      refreshVisualCounters(followerNumericValue);
 
-      const avatarNode = document.getElementById('card-avatar');
-      avatarNode.src = base64ImageGlobal ? base64ImageGlobal : fallbackImageSrc;
+      document.getElementById('out-following').innerText = shortenMetricNotation(inputFollowing);
 
-      document.getElementById('profile-form-panel').style.display = 'none';
-      document.getElementById('profile-view-panel').style.display = 'flex';
+      // Bind profile image payload
+      document.getElementById('out-avatar').src = activeBase64String ? activeBase64String : defaultPlaceholderImage;
+
+      // View state switching
+      document.getElementById('panel-form').style.display = 'none';
+      document.getElementById('panel-view').style.display = 'flex';
     }
 
-    function goBackToForm() {
-      document.getElementById('profile-view-panel').style.display = 'none';
-      document.getElementById('profile-form-panel').style.display = 'block';
+    function rollbackToForm() {
+      document.getElementById('panel-view').style.display = 'none';
+      document.getElementById('panel-form').style.display = 'block';
     }
 
-    function formatStatNumber(num) {
-      num = parseInt(num);
-      if (isNaN(num)) return 0;
-      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-      if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
-      return num;
+    // High performance UI metrics data shortening filters
+    function shortenMetricNotation(value) {
+      value = parseInt(value);
+      if (isNaN(value)) return '0';
+      if (value >= 1000000) return (value / 1000000).toFixed(1).replace('.0', '') + 'M';
+      if (value >= 1000) return (value / 1000).toFixed(1).replace('.0', '') + 'K';
+      return value;
     }
 
-    function renderFollowersCount(val) {
-      document.getElementById('card-followers').innerText = formatStatNumber(val);
+    function refreshVisualCounters(totalValue) {
+      document.getElementById('out-followers').innerText = shortenMetricNotation(totalValue);
     }
 
-    function toggleFollowLogic() {
-      const followBtn = document.getElementById('follow-action-btn');
-      if (!isFollowingState) {
-        initialFollowerCount++;
-        isFollowingState = true;
-        followBtn.innerText = "Following";
-        followBtn.classList.add('following');
+    // Interaction Business Rules Engine: Follow Mechanism
+    function executeFollowToggle() {
+      const followBtnReference = document.getElementById('follow-trigger');
+      if (!localTrackingFollowState) {
+        followerNumericValue++;
+        localTrackingFollowState = true;
+        followBtnReference.innerText = "Following";
+        followBtnReference.classList.add('active-state');
       } else {
-        initialFollowerCount--;
-        isFollowingState = false;
-        followBtn.innerText = "Follow";
-        followBtn.classList.remove('following');
+        followerNumericValue--;
+        localTrackingFollowState = false;
+        followBtnReference.innerText = "Follow";
+        followBtnReference.classList.remove('active-state');
       }
-      renderFollowersCount(initialFollowerCount);
+      refreshVisualCounters(followerNumericValue);
     }
 
-    function triggerMessageLogic() {
+    // Interaction Business Rules Engine: Alerts Messaging dialog fallback
+    function executeMessageDialog() {
       alert("[ User is currently busy... ]");
     }
   </script>
