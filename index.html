@@ -1,276 +1,748 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ29QKLKKR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Instagram Aesthetic Profile</title>
+  <style>
+    :root {
+      --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      --future-gradient1: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+      --future-gradient2: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+      --bg-dark: #090a0f;
+    }
 
-  gtag('config', 'G-WQ29QKLKKR');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earn Money via CJP - Support Link Generator</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Anton&family=Oswald:wght@300;400;500&display=swap');
-        
-        :root {
-            --mainColor: #333333;
-            --secondColor: #0400ff;
-            --bgLight: #f6f6f6;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: radial-gradient(circle at top left, #0d0d11, #050507);
-        }
+    body {
+      background-color: var(--bg-dark);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      perspective: 1000px;
+    }
 
-        /* Luxury UIverse Card Style */
-        .uiverse-card {
-            background: rgba(18, 18, 22, 0.75);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.6);
-        }
+    /* ==================== INPUT FORM SECTION ==================== */
+    .form-container {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      transition: all 0.5s ease;
+    }
 
-        /* Custom Pulse Gradient Buttons requested by you */
-        .uiverse-btn {
-            border: none;
-            color: #fff;
-            background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
-            border-radius: 20px;
-            background-size: 100% auto;
-            font-family: inherit;
-            font-size: 16px;
-            padding: 0.7em 1.8em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
+    .form-title {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 25px;
+      background: var(--insta-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .uiverse-btn:hover {
-            background-position: right center;
-            background-size: 200% auto;
-            -webkit-animation: pulse512 1.5s infinite;
-            animation: pulse512 1.5s infinite;
-        }
+    .input-group {
+      margin-bottom: 18px;
+    }
 
-        @keyframes pulse512 {
-            0% {
-                box-shadow: 0 0 0 0 rgba(5, 186, 218, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 12px rgba(5, 186, 218, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(5, 186, 218, 0);
-            }
-        }
+    .input-group label {
+      display: block;
+      font-size: 12px;
+      color: #aaa;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        .input-glow:focus {
-            outline: none;
-            border-color: #4ce3f7;
-            box-shadow: 0 0 15px rgba(76, 227, 247, 0.15);
-        }
+    .input-group input, .input-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 12px;
+      color: white;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s;
+    }
 
-        /* Clean UI styles provided by you */
-        #night-mode-toggle {
-            display: none;
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 0.4s ease-out forwards;
-        }
+    .input-group input:focus, .input-group textarea:focus {
+      border-color: #e6683c;
+      box-shadow: 0 0 10px rgba(230, 104, 60, 0.2);
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    /* Custom File Upload Styling based on user reference */
+    .file-upload-box {
+      width: 100%;
+      border: 2px dashed #40c9ff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 15px;
+      cursor: pointer;
+      background: rgba(0, 110, 255, 0.05);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .file-upload-box svg {
+      height: 40px;
+      fill: #40c9ff;
+      margin-bottom: 8px;
+    }
+
+    .file-upload-box p {
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    #file-input {
+      display: none;
+    }
+
+    .preview-badge {
+      font-size: 11px;
+      color: #e81cff;
+      margin-top: 5px;
+      display: none;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      width: 100%;
+      transition: all 0.5s;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 14px;
+      background-color: white;
+      color: #000;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 2px 2px 0px #ddd, 4px 4px 0px #bbb, 6px 6px 0px #999;
+      text-transform: uppercase;
+    }
+
+    .submit-btn:hover {
+      background-color: #e81cff;
+      color: #fff;
+      box-shadow: none;
+      transform: translateY(4px);
+    }
+
+    /* ==================== FUTURE PROFILE VIEW SYSTEM ==================== */
+    .profile-display-wrapper {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      display: none; /* Hidden initially */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Back Button to Form */
+    .back-to-form-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+    }
+
+    .back-to-form-btn:hover {
+      background: white;
+      color: black;
+    }
+
+    /* Background futuristic floating circles */
+    .circle-bg {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #ffbb66;
+      position: absolute;
+      filter: blur(40px);
+      animation: floating 3s infinite ease-in-out;
+      opacity: 0.3;
+      z-index: 1;
+    }
+
+    #circle-bottom {
+      background-color: #ff8866;
+      left: 30%;
+      top: 20%;
+      width: 200px;
+      height: 200px;
+    }
+
+    #circle-right {
+      background-color: #e81cff;
+      right: 25%;
+      bottom: 20%;
+      width: 180px;
+      height: 180px;
+      animation-delay: -1s;
+    }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(20px) scale(1.1); }
+    }
+
+    /* Carousel Structure */
+    .carousel-inner {
+      --w: 260px;
+      --h: 360px;
+      --translateZ: 300px;
+      --rotateX: -10deg;
+      --perspective: 1200px;
+      position: relative;
+      width: var(--w);
+      height: var(--h);
+      z-index: 5;
+      transform-style: preserve-3d;
+      transform: perspective(var(--perspective)) rotateX(var(--rotateX));
+      animation: rotating 25s linear infinite;
+    }
+
+    .carousel-inner:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes rotating {
+      from { transform: perspective(1200px) rotateX(-10deg) rotateY(0deg); }
+      to { transform: perspective(1200px) rotateX(-10deg) rotateY(1turn); }
+    }
+
+    /* Futuristic 3D Card Setup */
+    .futuristic-card {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      border-radius: 16px;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+      /* Default position for single item, dynamic configuration can be done via JS if quantity > 1 */
+      transform: rotateY(0deg) translateZ(0px); 
+    }
+
+    /* Glow Effects */
+    .futuristic-card::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 18px;
+      background: var(--future-gradient1);
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .futuristic-card::after {
+      content: "";
+      z-index: -3;
+      position: absolute;
+      inset: 0;
+      background: var(--future-gradient2);
+      transform: scale(0.95);
+      filter: blur(25px);
+      opacity: 0.8;
+      transition: filter 0.5s;
+    }
+
+    .futuristic-card:hover::after {
+      filter: blur(35px);
+    }
+
+    /* Card Content Flip Logic */
+    .card-content-wrapper {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 16px;
+    }
+
+    .futuristic-card:hover .card-content-wrapper {
+      transform: rotateY(180deg);
+    }
+
+    .front-side, .back-side {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 14px;
+      overflow: hidden;
+      background-color: #0b0c10;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* FRONT SIDE: Profile Visuals */
+    .front-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .profile-image-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+
+    .image-overlay-layer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.95) 100%);
+      z-index: 2;
+    }
+
+    .front-ui-elements {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .badge-premium {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 4px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+      width: fit-content;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #40c9ff;
+    }
+
+    .bottom-info-panel {
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+      width: 100%;
+      padding: 12px;
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .display-name {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+      color: #fff;
+    }
+
+    .display-username {
+      font-size: 12px;
+      color: #e81cff;
+      font-weight: 600;
+    }
+
+    .display-bio {
+      font-size: 11px;
+      color: #ccc;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* BACK SIDE: Meta Information & Interaction Buttons */
+    .back-side {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    /* Cyber Matrix Rotating light effect on back */
+    .back-side::before {
+      position: absolute;
+      content: ' ';
+      top: -30%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: linear-gradient(90deg, transparent, rgba(232, 28, 255, 0.2), transparent);
+      animation: scanline 4s infinite linear;
+      z-index: 1;
+    }
+
+    @keyframes scanline {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .back-content-inner {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .back-header {
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 10px;
+    }
+
+    .back-header h4 {
+      font-size: 14px;
+      color: #40c9ff;
+      letter-spacing: 1px;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .stat-item h5 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-item p {
+      font-size: 10px;
+      color: #aaa;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Interaction Button Controls */
+    .action-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .action-btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .btn-follow {
+      background: var(--insta-gradient);
+      color: white;
+      box-shadow: 0 4px 10px rgba(204, 35, 102, 0.3);
+    }
+
+    .btn-follow.following {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: none;
+    }
+
+    .btn-message {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-message:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .card-footer-tag {
+      text-align: center;
+      font-size: 9px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+  </style>
 </head>
-<body class="text-gray-200 min-h-screen flex flex-col justify-between">
+<body>
 
-    <header class="w-full max-w-6xl mx-auto px-6 py-5 flex justify-between items-center border-b border-gray-800/40">
-        <div class="flex items-center gap-3">
-            <img src="https://i.pinimg.com/736x/b9/90/e2/b990e29533946571d281fb796bc68b01.jpg" 
-                 alt="CJP Logo" 
-                 class="w-10 h-10 rounded-full border border-gray-700 object-cover">
-            <span class="text-lg font-bold tracking-wider bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Earn with CJP </span>
-        </div>
-        <span class="text-[11px] bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 font-semibold tracking-wider uppercase">Active Protest</span>
-    </header>
+  <!-- ==================== STAGE 1: PROFILE CREATION FORM ==================== -->
+  <div class="form-container" id="profile-form-panel">
+    <div class="form-title">Insta-Aesthetic Engine</div>
+    
+    <div class="input-group">
+      <label for="input-name">Full Name</label>
+      <input type="text" id="input-name" placeholder="e.g. Aman Sharma" value="Aman Sharma">
+    </div>
 
-    <main class="w-full max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-start flex-grow">
-        
-        <div class="uiverse-card rounded-2xl p-6 md:p-8 w-full">
-            <div class="mb-6">
-                <h1 class="text-2xl font-bold text-white tracking-tight mb-2">Earn Money via CJP</h1>
-                <p class="text-sm text-gray-400">Apni detail fill karke automated support page generate karo aur earning start karo.</p>
-            </div>
+    <div class="input-group">
+      <label for="input-username">Username</label>
+      <input type="text" id="input-username" placeholder="e.g. cyber_aman" value="cyber_aman">
+    </div>
 
-            <div class="space-y-5">
-                <div>
-                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Instagram Username</label>
-                    <input type="text" id="username" placeholder="e.g. cockroch_janta_real" 
-                           class="w-full bg-black/40 border border-gray-800 rounded-xl px-4 py-3 text-white input-glow transition-all text-sm">
-                </div>
+    <div class="input-group">
+      <label for="input-bio">Bio Description</label>
+      <textarea id="input-bio" rows="2" placeholder="Tell your aesthetic story...">Creating digital realms. Living in 2026. ⚡</textarea>
+    </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Description <span class="text-gray-600 text-[10px]">(Optional)</span></label>
-                    <input type="text" id="description" placeholder="description" 
-                           class="w-full bg-black/40 border border-gray-800 rounded-xl px-4 py-3 text-white input-glow transition-all text-sm">
-                </div>
+    <div class="stats-row">
+      <div class="input-group">
+        <label for="input-followers">Followers</label>
+        <input type="number" id="input-followers" placeholder="10K" value="14200">
+      </div>
+      <div class="input-group">
+        <label for="input-following">Following</label>
+        <input type="number" id="input-following" placeholder="340" value="482">
+      </div>
+    </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Your UPI ID</label>
-                    <input type="text" id="upi" placeholder="username@upi (अपना UPI ID भरे )" 
-                           class="w-full bg-black/40 border border-gray-800 rounded-xl px-4 py-3 text-white input-glow transition-all text-sm">
-                </div>
+    <!-- Interactive File Upload Box -->
+    <label class="file-upload-box" for="file-input">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+      </svg>
+      <p id="upload-status-text">Click to Choose Profile Picture</p>
+      <div class="preview-badge" id="preview-badge">Image Cached in LocalStorage! ✅</div>
+    </label>
+    <input type="file" id="file-input" accept="image/*">
 
-                <div class="pt-2">
-                    <button onclick="generateCJPLink()" class="uiverse-btn w-full">
-                        Get Earning Link
-                    </button>
-                </div>
-            </div>
+    <button type="button" class="submit-btn" onclick="generateProfileView()">
+      { See Your Profile }
+    </button>
+  </div>
 
-            <div id="outputContainer" class="hidden mt-6 pt-6 border-t border-gray-800/80 animate-fade-in">
-                <label class="block text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2">Your Earning Link Ready</label>
-                
-                <input type="text" id="generatedLink" readonly 
-                       class="w-full bg-blue-500/5 border border-blue-500/20 rounded-xl px-4 py-3 text-cyan-200 text-xs mb-3 focus:outline-none overflow-x-auto">
-                
-                <div class="flex flex-wrap gap-3">
-                    <button onclick="copyLink()" class="uiverse-btn text-xs py-2 px-4 rounded-xl" style="font-size:13px; border-radius:12px;">
-                        Copy Link Again
-                    </button>
-                    <a id="visitBtn" href="#" target="_blank" class="uiverse-btn text-xs py-2 px-4 rounded-xl" style="font-size:13px; border-radius:12px; background-image: linear-gradient(30deg, #10b981, #059669);">
-                        Visit Link
-                    </a>
-                </div>
-                <p class="text-[11px] text-green-400 mt-3 flex items-center gap-1 font-medium">
-                    <span>✨</span> Link ready! Use it on instagram bio/stories.
-                </p>
-            </div>
-        </div>
 
-        <div class="space-y-6 w-full">
+  <!-- ==================== STAGE 2: FUTURISTIC PROFILE MATRIX VIEW ==================== -->
+  <div class="profile-display-wrapper" id="profile-view-panel">
+    
+    <!-- Navigation Back Controller -->
+    <button class="back-to-form-btn" onclick="goBackToForm()">← Edit Profile</button>
+
+    <!-- Glowing Background Artifacts -->
+    <div class="circle-bg" id="circle-bottom"></div>
+    <div class="circle-bg" id="circle-right"></div>
+
+    <!-- 3D Rotation Container Frame -->
+    <div class="carousel-inner">
+      <div class="futuristic-card">
+        <div class="card-content-wrapper">
+          
+          <!-- CARD FRONT VIEW -->
+          <div class="front-side">
+            <!-- Dynamic Avatar Background -->
+            <img src="" id="card-avatar" class="profile-image-bg" alt="Profile Image">
+            <div class="image-overlay-layer"></div>
             
-            <div id="dynamicImageContainer" class="hidden animate-fade-in">
-                <div class="uiverse-card rounded-2xl overflow-hidden aspect-[9/16] max-h-[360px] border border-gray-800">
-                    <img src="img.jpg" alt="How to use instruction" class="w-full h-full object-cover">
-                </div>
+            <div class="front-ui-elements">
+              <div class="badge-premium">NEO-GEN VERIFIED</div>
+              
+              <div class="bottom-info-panel">
+                <div class="display-name" id="card-name">Aman Sharma</div>
+                <div class="display-username" id="card-username">@cyber_aman</div>
+                <div class="display-bio" id="card-bio">Creating digital realms. Living in 2026. ⚡</div>
+              </div>
             </div>
+          </div>
 
-            <div class="uiverse-card rounded-2xl p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                        <span class="flex h-2 w-2 relative">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                        </span>
-                        Top CJP Earners
-                    </h3>
-                    <span class="text-[11px] text-gray-500"> stats</span>
+          <!-- CARD BACK VIEW -->
+          <div class="back-side">
+            <div class="back-content-inner">
+              
+              <div class="back-header">
+                <h4 id="card-back-username">@CYBER_AMAN</h4>
+              </div>
+
+              <!-- Instagram Style Architecture Stats Container -->
+              <div class="stats-container">
+                <div class="stat-item">
+                  <h5>0</h5>
+                  <p>Posts</p>
                 </div>
-                
-                <div class="space-y-3">
-                    <div class="flex justify-between items-center bg-white/[0.01] border border-white/[0.03] p-3 rounded-xl">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-7 h-7 bg-blue-500/10 text-blue-400 rounded-lg flex items-center justify-center font-bold text-xs border border-blue-500/20">1</div>
-                            <span class="text-sm font-medium tracking-wide text-gray-300">C********ty</span>
-                        </div>
-                        <span class="text-sm font-bold text-cyan-400">₹2.90 Lakh</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white/[0.01] border border-white/[0.03] p-3 rounded-xl">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-7 h-7 bg-gray-500/10 text-gray-400 rounded-lg flex items-center justify-center font-bold text-xs border border-gray-500/10">2</div>
-                            <span class="text-sm font-medium tracking-wide text-gray-300">c*********_.3</span>
-                        </div>
-                        <span class="text-sm font-bold text-gray-400">₹1.45 Lakh</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-white/[0.01] border border-white/[0.03] p-3 rounded-xl">
-                        <div class="flex items-center gap-2.5">
-                            <div class="w-7 h-7 bg-gray-500/10 text-gray-400 rounded-lg flex items-center justify-center font-bold text-xs border border-gray-500/10">3</div>
-                            <span class="text-sm font-medium tracking-wide text-gray-300">F***********ty</span>
-                        </div>
-                        <span class="text-sm font-bold text-gray-400">₹84,200</span>
-                    </div>
+                <div class="stat-item">
+                  <h5 id="card-followers">0</h5>
+                  <p>Followers</p>
                 </div>
+                <div class="stat-item">
+                  <h5 id="card-following">0</h5>
+                  <p>Following</p>
+                </div>
+              </div>
+
+              <!-- Logic Driven Interactive Buttons -->
+              <div class="action-buttons">
+                <button class="action-btn btn-follow" id="follow-action-btn" onclick="toggleFollowLogic()">Follow</button>
+                <button class="action-btn btn-message" onclick="triggerMessageLogic()">Message</button>
+              </div>
+
+              <div class="card-footer-tag">FUTURE ENGINE V2.6</div>
             </div>
+          </div>
+
         </div>
-    </main>
+      </div>
+    </div>
 
-    <footer class="w-full text-center py-5 border-t border-gray-900 text-xs text-gray-600">
-        Created for CJP Protest Supporters &copy; 2026. All rights reserved.
-    </footer>
+  </div>
 
-    <script>
-        function generateCJPLink() {
-            const username = document.getElementById('username').value.trim();
-            let description = document.getElementById('description').value.trim();
-            const upi = document.getElementById('upi').value.trim();
+  <!-- ==================== JAVASCRIPT SYSTEM ENGINE ==================== -->
+  <script>
+    // Global tracking storage references
+    let base64ImageGlobal = "";
+    let initialFollowerCount = 0;
+    let isFollowingState = false;
 
-            // Strict Validation Logic: checking blank inputs
-            if (!username || !upi) {
-                alert('Bhai, Username aur UPI ID dono bharo pehle!');
-                return;
-            }
+    // Default Fallback Image (Neon Minimal Abstract Concept Graphics)
+    const fallbackImageSrc = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='400' viewBox='0 0 300 400'><rect width='100%' height='100%' fill='%23121214'/><circle cx='150' cy='160' r='60' fill='%23222' stroke='%2340c9ff' stroke-width='3'/><path d='M70 320 C70 250, 230 250, 230 320' fill='none' stroke='%23e81cff' stroke-width='4'/></svg>";
 
-            // Strict Logic: checking `@` inside UPI String
-            if (!upi.includes('@')) {
-                alert('Opps !! Bro UPI id dalo , Number ya kisi aur cheez payment recive nahi karva skte kyuki apki privacy hamari zimmedari hai !!');
-                return;
-            }
+    // Initialize application state checking LocalStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      // Form fields default loads or local data rehydration
+      const cachedImage = localStorage.getItem('user_profile_dp');
+      if (cachedImage) {
+        base64ImageGlobal = cachedImage;
+        document.getElementById('upload-status-text').innerText = "Stored DP Detected!";
+        document.getElementById('preview-badge').style.display = "block";
+      }
+    });
 
-            // Fallback default string handling
-            if (!description) {
-                description = "CJP INDIA";
-            }
+    // Handle Profile Image uploading, base64 compilation & localStorage caching
+    document.getElementById('file-input').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          base64ImageGlobal = event.target.result;
+          
+          // Securely write data string directly into local storage stream
+          try {
+            localStorage.setItem('user_profile_dp', base64ImageGlobal);
+            document.getElementById('upload-status-text').innerText = "File Parsed Successfully!";
+            document.getElementById('preview-badge').style.display = "block";
+          } catch(err) {
+            alert("Image file size is too big for local storage cache. System will use temporary memory.");
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    });
 
-            // URL Hash standard masking
-            const encUser = encodeURIComponent(username);
-            const encDesc = encodeURIComponent(description);
-            const encUpi = encodeURIComponent(upi);
+    // Form to Profile Rendering Controller Switching State
+    function generateProfileView() {
+      // Gather runtime input node variables
+      const nameVal = document.getElementById('input-name').value || "No Name Provided";
+      const userVal = document.getElementById('input-username').value || "anonymous";
+      const bioVal = document.getElementById('input-bio').value || "No Bio added yet.";
+      const followersVal = parseInt(document.getElementById('input-followers').value) || 0;
+      const followingVal = document.getElementById('input-following').value || 0;
 
-            const baseUrl = window.location.origin + window.location.pathname;
-            const cleanBase = baseUrl.substring(0, baseUrl.lastIndexOf('/')) || baseUrl;
-            const finalSupportUrl = `${cleanBase}/support#${encUser}#${encDesc}#${encUpi}`;
+      // Assign states to View component layers
+      document.getElementById('card-name').innerText = nameVal;
+      document.getElementById('card-username').innerText = `@${userVal.replace('@', '')}`;
+      document.getElementById('card-back-username').innerText = `@${userVal.replace('@', '')}`.toUpperCase();
+      document.getElementById('card-bio').innerText = bioVal;
+      
+      // Follow numbers initialization setup
+      initialFollowerCount = followersVal;
+      isFollowingState = false;
+      renderFollowersCount(initialFollowerCount);
+      
+      document.getElementById('card-following').innerText = formatStatNumber(followingVal);
 
-            // Inject URLs inside input box & anchor visit link tags
-            document.getElementById('generatedLink').value = finalSupportUrl;
-            document.getElementById('visitBtn').href = finalSupportUrl;
+      // Bind uploaded profile avatar image configuration
+      const avatarNode = document.getElementById('card-avatar');
+      if (base64ImageGlobal) {
+        avatarNode.src = base64ImageGlobal;
+      } else {
+        avatarNode.src = fallbackImageSrc;
+      }
 
-            // Reveal hidden layouts dynamically (Output and img.jpg)
-            document.getElementById('outputContainer').classList.remove('hidden');
-            document.getElementById('dynamicImageContainer').classList.remove('hidden');
+      // Smooth Transitions animations toggling
+      document.getElementById('profile-form-panel').style.display = 'none';
+      document.getElementById('profile-view-panel').style.display = 'flex';
+    }
 
-            // Automatic clipboard triggering copy action mechanism
-            autoCopyToClipboard(finalSupportUrl);
-        }
-
-        function autoCopyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Link apke keybord me copy ho gya!! ap isse apne Bio ya story me laga kar earning kar skte hai!!');
-            }).catch(err => {
-                console.log('Auto copy failed, fallback to manual', err);
-            });
-        }
-
-        function copyLink() {
-            const linkInput = document.getElementById('generatedLink');
-            linkInput.select();
-            linkInput.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(linkInput.value);
-            alert('Copied successfully!');
-        }
+    // Toggle back execution controller
+    function goBackToForm() {
+      document.getElementById('profile-view-panel').style.display = 'none';
+      document.getElementById('profile-form-panel').style.display = 'block';
     </script>
+    <script>
+    // System utility formatting rule engines
+    function formatStatNumber(num) {
+      num = parseInt(num);
+      if (isNaN(num)) return 0;
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+      return num;
+    }
+
+    function renderFollowersCount(val) {
+      document.getElementById('card-followers').innerText = formatStatNumber(val);
+    }
+
+    // Interactive Core Logic: Follow/Unfollow State Machines
+    function toggleFollowLogic() {
+      const followBtn = document.getElementById('follow-action-btn');
+      if (!isFollowingState) {
+        // user clicked to follow
+        initialFollowerCount++;
+        isFollowingState = true;
+        followBtn.innerText = "Following";
+        followBtn.classList.add('following');
+      } else {
+        // user clicked to unfollow
+        initialFollowerCount--;
+        isFollowingState = false;
+        followBtn.innerText = "Follow";
+        followBtn.classList.remove('following');
+      }
+      renderFollowersCount(initialFollowerCount);
+    }
+
+    // Interactive Core Logic: Custom Contextual Messages Dialog popup system
+    function triggerMessageLogic() {
+      alert("[ User is currently busy... ]");
+    }
+  </script>
 </body>
 </html>
